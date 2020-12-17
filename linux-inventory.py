@@ -7,7 +7,8 @@ import urllib3
 
 
 def getInventoryData(hostname=""):
-    results = {'_meta': { 'hostvars': {}}}
+    #results = {'_meta': { 'hostvars': {}}}
+    results = { }
 
     groupname='Development'
     if groupname not in results:
