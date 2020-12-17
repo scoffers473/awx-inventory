@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
 import os
+import sys
 import requests
 import json, yaml
 from argparse import ArgumentParser
 import urllib3
 
 
+class SetEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, set):
+            return list(obj)
+        return json.JSONEncoder.default(self, obj)
+
 def getInventoryData(hostname=""):
-    #results = {'_meta': { 'hostvars': {}}}
-    results = { }
+    results = {'_meta': { 'hostvars': {}}}
 
     groupname='Development'
     if groupname not in results:
@@ -65,7 +71,7 @@ def main():
     elif args.host:
         result = show_host(args.host)
 
-    print(result)
+    sys.stdout.write(json.dumps(result, indent=2, cls=SetEncoder))
 
 if __name__ == '__main__':
     main()
