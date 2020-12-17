@@ -17,7 +17,9 @@ def getInventoryData(hostname=""):
             'vars': {}
         }
     results[groupname]['hosts'].append('centos')
-    results["alll"] = {"vars":{"url":"http://www.test.com"}}
+
+    results['all'] = {'hosts': [],'vars':{'url':'http://www.test.com'}}
+    results['all']['hosts'].append('centos')
     return results
 
 
