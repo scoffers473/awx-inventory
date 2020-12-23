@@ -9,7 +9,7 @@ import urllib3
 def getInventoryData(hostname=""):
     results = {'_meta': { 'hostvars': {}}}
 
-    groupname='Development'
+    groupname='vagrant'
     if groupname not in results:
         results[groupname]={
             'name': groupname,
@@ -18,8 +18,20 @@ def getInventoryData(hostname=""):
         }
     results[groupname]['hosts'].append('192.168.100.2')
 
+
+    groupname='vbox'
+    if groupname not in results:
+        results[groupname]={
+            'name': groupname,
+            'hosts': [],
+            'vars': {}
+        }
+    results[groupname]['hosts'].append('192.168.0.47')
+
+
     results['all'] = {'hosts': [],'vars':{'url':'http://www.test.com'}}
     results['all']['hosts'].append('192.168.100.2')
+    results['all']['hosts'].append('192.168.0.47')
     return results
 
 
