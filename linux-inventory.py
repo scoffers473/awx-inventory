@@ -27,7 +27,7 @@ def getInventoryData(hostname=""):
             'vars': {}
         }
     results[groupname]['hosts'].append('192.168.0.47')
-    results[groupname]['hosts'].append('192.168.0.83')
+    results[groupname]['hosts'].append('192.168.0.65')
 
     groupname='rhel'
     if groupname not in results:
@@ -36,12 +36,12 @@ def getInventoryData(hostname=""):
             'hosts': [],
             'vars': {}
         }
-    results[groupname]['hosts'].append('192.168.0.83')
+    results[groupname]['hosts'].append('192.168.0.65')
 
     results['all'] = {'hosts': [],'vars':{'url':'http://www.test.com'}}
     results['all']['hosts'].append('192.168.100.2')
     results['all']['hosts'].append('192.168.0.47')
-    results['all']['hosts'].append('192.168.0.83')
+    results['all']['hosts'].append('192.168.0.65')
     return results
 
 
